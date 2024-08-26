@@ -15,7 +15,7 @@ This repository contains a Dockerfile and with the supporting files to deploy a 
 Clone this repository with the command: ``git clone https://github.com/EmaTavares/Challenge.git``
 
 ### 2. Generate SSL Certificates
-You can generate a private key and its certificate using the command: ``openssl req -newkey rsa:2048 -nodes -keyout privateKey.key -x509 -days 365 -out certificate.crt``
+You can generate a private key and its certificate using the command: ``openssl req -newkey rsa:2048 -nodes -keyout privateKey.key -x509 -days 365 -out certificate.crt -subj "/C=PT/ST=Lisbon/L=Lisbon/O=Challenge/OU=Challenge/CN=localhost``
 > Note that this pair is only available for 365 days.
 
 ### 3. Build the Docker Container
@@ -35,9 +35,11 @@ The following steps are not mandatory to execute the Dockerfile!
 #### a) Check If the Container Is Running
 Use the command: ``docker ps``
 #### b) Explore the Container's File System
-Use the commad ``docker exec -it <containersId> bash`` and the commands ``ls`` and ``cd <pathOfYourChoice>`` to explore inside the container
+Use the commad ``docker exec -it <containerId> bash`` and the commands ``ls`` and ``cd <pathOfYourChoice>`` to explore inside the container
 #### c) Check If Tomcat was successfully installed
 Go to your web browser and go to https://localhost:4041
+#### d) Stop Container 
+Use the commad ``docker stop <containerId>``
 
 ## Files Delivered
 - Dockerfile
